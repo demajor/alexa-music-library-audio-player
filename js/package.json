@@ -1,7 +1,7 @@
 {
-  "name": "skill-sample-nodejs-audio-player",
+  "name": "Doug Major Music Library Player",
   "version": "1.0.0",
-  "description": "An audio player sample skill.",
+  "description": "Alexa Skill for Doug Major Music Library Audio Player.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +9,8 @@
   "keywords": [
     "alexa",
     "skill",
-    "audio player"
+    "audio player",
+    "doug major music"
   ],
   "author": "Amazon.com",
   "license": "See license in ../LICENSE.txt",
@@ -18,6 +19,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alexa/skill-sample-nodejs-audio-player"
+    "url": "https://github.com/demajor/alexa-music-library-audio-player.git"
   }
 }
