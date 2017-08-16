@@ -1,11 +1,20 @@
-PlayAudio begin doug major music
-PlayAudio begin playing doug major music
-PlayAudio start doug major music
-PlayAudio start playing the doug major music
-PlayAudio play doug major music
+PlayAudio begin playing
+PlayAudio begin 
+PlayAudio start
+PlayAudio to start
+PlayAudio start playing
+PlayAudio play
 PlayAudio to play
-PlayAudio to begin doug major music
-PlayAudio to begin playing doug major music
-PlayAudio to start doug major music
-PlayAudio to start playing doug major music
-PlayAudio to play doug major music
+PlayAudio play now
+PlayAudio pause
+PlayAudio resume
+PlayAudio continue
+PlayAudio keep going
+PlayAudio stop
+PlayAudio off
+PlayAudio shuffle
+PlayAudio shuffle the music
+PlayAudio shuffle mode
+PlayAudio shuffle off
+PlayAudio turn off shuffle
+PlayAudio stop shuffling

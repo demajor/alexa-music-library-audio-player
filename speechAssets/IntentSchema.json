@@ -4,6 +4,12 @@
       "intent": "PlayAudio"
     },
     {
+      "intent": "AMAZON.ShuffleOnIntent"
+    },
+    {
+      "intent": "AMAZON.ShuffleOffIntent"
+    },
+    {
       "intent": "AMAZON.PauseIntent"
     },
     {
