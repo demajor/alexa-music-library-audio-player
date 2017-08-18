@@ -20,8 +20,8 @@ var stateHandlers = {
             //  Change state to START_MODE
             this.handler.state = constants.states.START_MODE;
 
-            var message = 'Welcome to the AWS Podcast. You can say, play the audio to begin the podcast.';
-            var reprompt = 'You can say, play the audio, to begin.';
+            var message = 'Welcome to the Doug Major Music Library Player. You can say, play, or shuffle, to begin listening to the Doug Major Music Library.';
+            var reprompt = 'You can say, start playing, to begin.';
 
             this.response.speak(message).listen(reprompt);
             this.emit(':responseReady');
@@ -41,7 +41,7 @@ var stateHandlers = {
             controller.play.call(this);
         },
         'AMAZON.HelpIntent' : function () {
-            var message = 'Welcome to the AWS Podcast. You can say, play the audio, to begin the podcast.';
+            var message = 'Welcome to the Doug Major Music Library Player. You can say, play, continue, or shuffle, to begin listening to the Doug Major Music Library.';
             this.response.speak(message).listen(message);
             this.emit(':responseReady');
         },
@@ -59,7 +59,7 @@ var stateHandlers = {
             // No session ended logic
         },
         'Unhandled' : function () {
-            var message = 'Sorry, I could not understand. Please say, play the audio, to begin the audio.';
+            var message = 'Sorry, I could not understand. Please say, start playing, or shuffle to begin playing the music.';
             this.response.speak(message).listen(message);
             this.emit(':responseReady');
         }
@@ -82,13 +82,13 @@ var stateHandlers = {
             var reprompt;
             if (this.attributes['playbackFinished']) {
                 this.handler.state = constants.states.START_MODE;
-                message = 'Welcome to the AWS Podcast. You can say, play the audio to begin the podcast.';
+                message = 'Welcome to the Doug Major Music Library Player. You can say, play the music to begin listening to the Doug Major Music Library.';
                 reprompt = 'You can say, play the audio, to begin.';
             } else {
                 this.handler.state = constants.states.RESUME_DECISION_MODE;
                 message = 'You were listening to ' + audioData[this.attributes['playOrder'][this.attributes['index']]].title +
                     ' Would you like to resume?';
-                reprompt = 'You can say yes to resume or no to play from the top.';
+                reprompt = 'You can say yes to resume or no to play from the beginning.';
             }
 
             this.response.speak(message).listen(reprompt);
@@ -107,8 +107,8 @@ var stateHandlers = {
         'AMAZON.ShuffleOffIntent' : function () { controller.shuffleOff.call(this) },
         'AMAZON.StartOverIntent' : function () { controller.startOver.call(this) },
         'AMAZON.HelpIntent' : function () {
-            // This will called while audio is playing and a user says "ask <invocation_name> for help"
-            var message = 'You are listening to the AWS Podcast. You can say, Next or Previous to navigate through the playlist. ' +
+            // This will call while audio is playing and a user says "ask <invocation_name> for help"
+            var message = 'You are listening to the Doug Major Music Library Player. You can say, Next or Previous to navigate through the Doug Major Music Library. ' +
                 'At any time, you can say Pause to pause the audio and Resume to resume.';
             this.response.speak(message).listen(message);
             this.emit(':responseReady');
@@ -117,7 +117,7 @@ var stateHandlers = {
             // No session ended logic
         },
         'Unhandled' : function () {
-            var message = 'Sorry, I could not understand. You can say, Next or Previous to navigate through the playlist.';
+            var message = 'Sorry, I could not understand. You can say, Next or Previous to navigate through the Doug Major Music Library.';
             this.response.speak(message).listen(message);
             this.emit(':responseReady');
         }
@@ -138,7 +138,7 @@ var stateHandlers = {
         'LaunchRequest' : function () {
             var message = 'You were listening to ' + audioData[this.attributes['playOrder'][this.attributes['index']]].title +
                 ' Would you like to resume?';
-            var reprompt = 'You can say yes to resume or no to play from the top.';
+            var reprompt = 'You can say yes to resume or no to play from the beginning.';
             this.response.speak(message).listen(reprompt);
             this.emit(':responseReady');
         },
@@ -233,7 +233,7 @@ var controller = function () {
                     // Reached at the end. Thus reset state to start mode and stop playing.
                     this.handler.state = constants.states.START_MODE;
 
-                    var message = 'You have reached at the end of the playlist.';
+                    var message = 'You have reached at the end of the Doug Major Music Library.';
                     this.response.speak(message).audioPlayerStop();
                     return this.emit(':responseReady');
                 }
@@ -261,7 +261,7 @@ var controller = function () {
                     // Reached at the end. Thus reset state to start mode and stop playing.
                     this.handler.state = constants.states.START_MODE;
 
-                    var message = 'You have reached at the start of the playlist.';
+                    var message = 'You have reached the start of the Doug Major Music Library.';
                     this.response.speak(message).audioPlayerStop();
                     return this.emit(':responseReady');
                 }

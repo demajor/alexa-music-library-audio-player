@@ -4,13 +4,16 @@ PlayAudio start
 PlayAudio to start
 PlayAudio start playing
 PlayAudio play
+PlayAudio play the music
 PlayAudio to play
 PlayAudio play now
 PlayAudio pause
+PlayAudio pause the music
 PlayAudio resume
 PlayAudio continue
 PlayAudio keep going
 PlayAudio stop
+PlayAudio stop the music
 PlayAudio off
 PlayAudio shuffle
 PlayAudio shuffle on
