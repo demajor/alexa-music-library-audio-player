@@ -46,12 +46,12 @@ var stateHandlers = {
             this.emit(':responseReady');
         },
         'AMAZON.StopIntent' : function () {
-            var message = 'Good bye.';
+            var message = 'Goodbye.';
             this.response.speak(message);
             this.emit(':responseReady');
         },
         'AMAZON.CancelIntent' : function () {
-            var message = 'Good bye.';
+            var message = 'Goodbye.';
             this.response.speak(message);
             this.emit(':responseReady');
         },
@@ -152,12 +152,12 @@ var stateHandlers = {
             this.emit(':responseReady');
         },
         'AMAZON.StopIntent' : function () {
-            var message = 'Good bye.';
+            var message = 'Goodbye.';
             this.response.speak(message);
             this.emit(':responseReady');
         },
         'AMAZON.CancelIntent' : function () {
-            var message = 'Good bye.';
+            var message = 'Goodbye.';
             this.response.speak(message);
             this.emit(':responseReady');
         },
