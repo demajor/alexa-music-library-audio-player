@@ -152,15 +152,18 @@ var stateHandlers = {
             this.emit(':responseReady');
         },
         'AMAZON.StopIntent' : function () {
+            controller.stop.call(this);
             var message = 'Goodbye.';
             this.response.speak(message);
             this.emit(':responseReady');
         },
         'AMAZON.CancelIntent' : function () {
+            controller.stop.call(this);
             var message = 'Goodbye.';
             this.response.speak(message);
             this.emit(':responseReady');
         },
+
         'SessionEndedRequest' : function () {
             // No session ended logic
         },
