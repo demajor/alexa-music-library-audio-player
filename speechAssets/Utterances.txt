@@ -12,7 +12,9 @@ PlayAudio pause the music
 PlayAudio resume
 PlayAudio continue
 PlayAudio keep going
+PlayAudio next
 PlayAudio stop
+PlayAudio cancel
 PlayAudio stop the music
 PlayAudio off
 PlayAudio shuffle
