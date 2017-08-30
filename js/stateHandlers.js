@@ -68,19 +68,19 @@ var stateHandlers = {
         }
     }),
     playModeIntentHandlers : Alexa.CreateStateHandler(constants.states.PLAY_MODE, {
-        /*
-         *  All Intent Handlers for state : PLAY_MODE
-         */
+        
+         // *  All Intent Handlers for state : PLAY_MODE
+         
         'LaunchRequest' : function () {
-            /*
-             *  Session resumed in PLAY_MODE STATE.
-             *  If playback had finished during last session :
-             *      Give welcome message.
-             *      Change state to START_STATE to restrict user inputs.
-             *  Else :
-             *      Ask user if he/she wants to resume from last position.
-             *      Change state to RESUME_DECISION_MODE
-             */
+            
+             // *  Session resumed in PLAY_MODE STATE.
+             // *  If playback had finished during last session :
+             // *      Give welcome message.
+             // *      Change state to START_STATE to restrict user inputs.
+             // *  Else :
+             // *      Ask user if he/she wants to resume from last position.
+             // *      Change state to RESUME_DECISION_MODE
+             
             var message;
             var reprompt;
             if (this.attributes['playbackFinished']) {
@@ -111,7 +111,7 @@ var stateHandlers = {
         'AMAZON.StartOverIntent' : function () { controller.startOver.call(this) },
         'AMAZON.HelpIntent' : function () {
             // This will call while audio is playing and a user says "ask <invocation_name> for help"
-            if (process.env.DEBUG) {console.log('playModeIntentHandlers::AMAZON.HelpIntent')};
+            // if (process.env.DEBUG) {console.log('playModeIntentHandlers::AMAZON.HelpIntent')};
             var message = 'You are listening to the Doug Major Music Library Player. You can say, Next or Previous to navigate through the Doug Major Music Library. ' +
                 'At any time, you can say Pause to pause the audio and Resume to resume.';
             this.response.speak(message).listen(message);
@@ -136,9 +136,9 @@ var stateHandlers = {
         'PreviousCommandIssued' : function () { controller.playPrevious.call(this) }
     }),
     resumeDecisionModeIntentHandlers : Alexa.CreateStateHandler(constants.states.RESUME_DECISION_MODE, {
-        /*
-         *  All Intent Handlers for state : RESUME_DECISION_MODE
-         */
+        
+        // All Intent Handlers for state : RESUME_DECISION_MODE
+       
         'LaunchRequest' : function () {
             var message = 'You were listening to ' + audioData[this.attributes['playOrder'][this.attributes['index']]].title +
                 ' Would you like to resume?';
@@ -146,8 +146,14 @@ var stateHandlers = {
             this.response.speak(message).listen(reprompt);
             this.emit(':responseReady');
         },
-        'AMAZON.YesIntent' : function () { controller.play.call(this) },
-        'AMAZON.NoIntent' : function () { controller.reset.call(this) },
+        'AMAZON.YesIntent' : function () { 
+            if (process.env.DEBUG) {console.log('resumeDecisionModeIntentHandlers::AMAZON.YesIntent')};
+            controller.play.call(this) 
+        },
+        'AMAZON.NoIntent' : function () { 
+            if (process.env.DEBUG) {console.log('resumeDecisionModeIntentHandlers::AMAZON.NoIntent')};
+            controller.reset.call(this) 
+        },
         'AMAZON.HelpIntent' : function () {
             var message = 'You were listening to ' + audioData[this.attributes['index']].title +
                 ' Would you like to resume?';
