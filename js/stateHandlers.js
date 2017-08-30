@@ -41,18 +41,21 @@ var stateHandlers = {
             controller.play.call(this);
         },
         'AMAZON.HelpIntent' : function () {
+            if (process.env.DEBUG) {console.log('startModeIntentHandlers::AMAZON.HelpIntent')};
             var message = 'Welcome to the Doug Major Music Library Player. You can say, play, continue, or shuffle, to begin listening to the Doug Major Music Library.';
             this.response.speak(message).listen(message);
             this.emit(':responseReady');
         },
         'AMAZON.StopIntent' : function () {
-            var message = 'Goodbye.';
-            this.response.speak(message);
+            // console.log('startModeIntentHandlers::AMAZON.StopIntent');
+            // console.log('process.env.DEBUG = ' + process.env.DEBUG)
+            if (process.env.DEBUG) {console.log('startModeIntentHandlers::AMAZON.StopIntent')};
+            controller.stop.call(this);
             this.emit(':responseReady');
         },
         'AMAZON.CancelIntent' : function () {
-            var message = 'Goodbye.';
-            this.response.speak(message);
+            if (process.env.DEBUG) {console.log('startModeIntentHandlers::AMAZON.CancelIntent')};
+            controller.stop.call(this);
             this.emit(':responseReady');
         },
         'SessionEndedRequest' : function () {
@@ -108,6 +111,7 @@ var stateHandlers = {
         'AMAZON.StartOverIntent' : function () { controller.startOver.call(this) },
         'AMAZON.HelpIntent' : function () {
             // This will call while audio is playing and a user says "ask <invocation_name> for help"
+            if (process.env.DEBUG) {console.log('playModeIntentHandlers::AMAZON.HelpIntent')};
             var message = 'You are listening to the Doug Major Music Library Player. You can say, Next or Previous to navigate through the Doug Major Music Library. ' +
                 'At any time, you can say Pause to pause the audio and Resume to resume.';
             this.response.speak(message).listen(message);
@@ -152,15 +156,13 @@ var stateHandlers = {
             this.emit(':responseReady');
         },
         'AMAZON.StopIntent' : function () {
+            if (process.env.DEBUG) {console.log('resumeDecisionModeIntentHandlers::AMAZON.StopIntent')};
             controller.stop.call(this);
-            var message = 'Goodbye.';
-            this.response.speak(message);
             this.emit(':responseReady');
         },
         'AMAZON.CancelIntent' : function () {
+            if (process.env.DEBUG) {console.log('resumeDecisionModeIntentHandlers::AMAZON.CancelIntent')};
             controller.stop.call(this);
-            var message = 'Goodbye.';
-            this.response.speak(message);
             this.emit(':responseReady');
         },
 
