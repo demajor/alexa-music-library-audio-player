@@ -1,26 +1,10 @@
-PlayAudio begin playing
 PlayAudio begin 
-PlayAudio start
-PlayAudio to start
-PlayAudio start playing
+PlayAudio begin playing
+PlayAudio start 
+PlayAudio start playing 
 PlayAudio play
-PlayAudio play the music
 PlayAudio to play
-PlayAudio play now
-PlayAudio pause
-PlayAudio pause the music
-PlayAudio resume
-PlayAudio continue
-PlayAudio keep going
-PlayAudio next
-PlayAudio stop
-PlayAudio cancel
-PlayAudio stop the music
-PlayAudio off
-PlayAudio shuffle
-PlayAudio shuffle on
-PlayAudio shuffle the music
-PlayAudio shuffle mode
-PlayAudio shuffle off
-PlayAudio turn off shuffle
-PlayAudio stop shuffling
+PlayAudio to begin 
+PlayAudio to begin playing 
+PlayAudio to start 
+PlayAudio to start playing 
