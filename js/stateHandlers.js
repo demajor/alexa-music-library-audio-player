@@ -41,20 +41,20 @@ var stateHandlers = {
             controller.play.call(this);
         },
         'AMAZON.HelpIntent' : function () {
-            if (process.env.DEBUG) {console.log('startModeIntentHandlers::AMAZON.HelpIntent')};
-            var message = 'Welcome to the Doug Major Music Library Player. You can say, play, continue, or shuffle, to begin listening to the Doug Major Music Library.';
+            // if (process.env.DEBUG) {console.log('startModeIntentHandlers::AMAZON.HelpIntent')};
+            var message = 'Help with the Doug Major Music Library Player. Try saying play or shuffle, to begin playing the music.';
             this.response.speak(message).listen(message);
             this.emit(':responseReady');
         },
         'AMAZON.StopIntent' : function () {
             // console.log('startModeIntentHandlers::AMAZON.StopIntent');
             // console.log('process.env.DEBUG = ' + process.env.DEBUG)
-            if (process.env.DEBUG) {console.log('startModeIntentHandlers::AMAZON.StopIntent')};
+            // if (process.env.DEBUG) {console.log('startModeIntentHandlers::AMAZON.StopIntent')};
             controller.stop.call(this);
             this.emit(':responseReady');
         },
         'AMAZON.CancelIntent' : function () {
-            if (process.env.DEBUG) {console.log('startModeIntentHandlers::AMAZON.CancelIntent')};
+            // if (process.env.DEBUG) {console.log('startModeIntentHandlers::AMAZON.CancelIntent')};
             controller.stop.call(this);
             this.emit(':responseReady');
         },
@@ -62,7 +62,7 @@ var stateHandlers = {
             // No session ended logic
         },
         'Unhandled' : function () {
-            var message = 'Sorry, I could not understand. Please say, start playing, or shuffle to begin playing the music.';
+            var message = 'Sorry, I could not understand your request. Please try saying play, or shuffle to begin playing the music.';
             this.response.speak(message).listen(message);
             this.emit(':responseReady');
         }
@@ -147,11 +147,11 @@ var stateHandlers = {
             this.emit(':responseReady');
         },
         'AMAZON.YesIntent' : function () { 
-            if (process.env.DEBUG) {console.log('resumeDecisionModeIntentHandlers::AMAZON.YesIntent')};
+            // if (process.env.DEBUG) {console.log('resumeDecisionModeIntentHandlers::AMAZON.YesIntent')};
             controller.play.call(this) 
         },
         'AMAZON.NoIntent' : function () { 
-            if (process.env.DEBUG) {console.log('resumeDecisionModeIntentHandlers::AMAZON.NoIntent')};
+            // if (process.env.DEBUG) {console.log('resumeDecisionModeIntentHandlers::AMAZON.NoIntent')};
             controller.reset.call(this) 
         },
         'AMAZON.HelpIntent' : function () {
@@ -162,12 +162,12 @@ var stateHandlers = {
             this.emit(':responseReady');
         },
         'AMAZON.StopIntent' : function () {
-            if (process.env.DEBUG) {console.log('resumeDecisionModeIntentHandlers::AMAZON.StopIntent')};
+            // if (process.env.DEBUG) {console.log('resumeDecisionModeIntentHandlers::AMAZON.StopIntent')};
             controller.stop.call(this);
             this.emit(':responseReady');
         },
         'AMAZON.CancelIntent' : function () {
-            if (process.env.DEBUG) {console.log('resumeDecisionModeIntentHandlers::AMAZON.CancelIntent')};
+            // if (process.env.DEBUG) {console.log('resumeDecisionModeIntentHandlers::AMAZON.CancelIntent')};
             controller.stop.call(this);
             this.emit(':responseReady');
         },
